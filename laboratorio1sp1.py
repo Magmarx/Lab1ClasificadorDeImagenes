@@ -34,7 +34,7 @@ tf.random.set_seed(seed)
 
 batch_size = 128
 num_classes = 10
-epochs = 200
+epochs = 50
 img_rows, img_cols = 28, 28
 class_names = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
