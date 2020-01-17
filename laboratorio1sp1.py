@@ -34,7 +34,7 @@ tf.random.set_seed(seed)
 
 batch_size = 128
 num_classes = 10
-epochs = 12
+epochs = 200
 img_rows, img_cols = 28, 28
 class_names = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
@@ -84,7 +84,8 @@ y_test = tf.keras.utils.to_categorical(y_test, num_classes)
 """# Building the model (En esta sección vamos a configurar nuestro dataset de manera que obtengamos un resultado mayor al 70% de accuracy)"""
 
 # Model 1
-# acc:  0.8384
+# acc:  0.8384 (12 Epochs)
+# acc: 0.9541 (200 Epochs)
 model = Sequential([
         Conv2D(32, kernel_size=(3, 3),
                  activation='relu',
@@ -156,7 +157,6 @@ plt.plot(val_acc, label='Validation Accuracy')
 plt.legend(loc='lower right')
 plt.setp(plt.legend().get_texts(), color='black')
 plt.ylabel('Accuracy')
-plt.ylim([min(plt.ylim()),0.7])
 plt.title('Training and Validation Accuracy')
 
 plt.subplot(2, 1, 2)
@@ -165,7 +165,6 @@ plt.plot(val_loss, label='Validation Loss')
 plt.legend(loc='upper right')
 plt.setp(plt.legend().get_texts(), color='black')
 plt.ylabel('Cross Entropy')
-plt.ylim([0.5,2.0])
 plt.title('Training and Validation Loss')
 plt.xlabel('epoch')
 plt.show()
